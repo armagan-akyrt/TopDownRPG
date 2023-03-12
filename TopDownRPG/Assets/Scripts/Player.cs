@@ -2,48 +2,60 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Movement
 {
-    private BoxCollider2D boxCollider; // player box collider
-
-    private Vector3 moveDelta;
-    private RaycastHit2D hit;
-
-    // Start is called before the first frame update
-    void Start()
+    private Animator anim;
+    private float x, y;
+    public float dashSpeed = 5f;
+    public float dashCooldown = 3f;
+    private bool canDash = true, isDashing = false;
+    protected override void Start()
     {
-        boxCollider = GetComponent<BoxCollider2D>();
+        base.Start();
+        anim = GetComponent<Animator>();
+    }
+    private void FixedUpdate()
+    {
+        x = Input.GetAxisRaw("Horizontal");
+        y = Input.GetAxisRaw("Vertical");
+
+        if (x != 0 || y != 0)
+        {
+            anim.SetBool("isMoving", true);
+            
+        }
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
+
+        UpdateMotor(new Vector3(x, y, 0));
+
+        
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private IEnumerator Dash()
     {
-        // Reset moveDelta;
-        moveDelta = Vector3.zero;
+        canDash = false;
+        isDashing = true;
+        float gravOrig = rb.gravityScale;
 
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
+        Vector2 direction = new Vector2(x, y);
+        direction = direction.normalized;
 
-        moveDelta = new Vector3(x, y, 0);
+        rb.gravityScale = 0f;
+        rb.velocity = direction * dashSpeed;
 
-        // Swap sprite direction based on horizontal direction
-        if (moveDelta.x > 0)
-            transform.localScale = Vector3.one;
-        else if (moveDelta.x < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
+        yield return new WaitForSeconds(dashCooldown);
 
-        // Make player move in y direction.
-        hit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(0, moveDelta.y), Mathf.Abs(moveDelta.y * Time.deltaTime), LayerMask.GetMask("Actor", "Blocking"));
-        
-        if (hit.collider == null)
-            transform.Translate(0, moveDelta.y * Time.deltaTime, 0);
-        // Make player move in y direction.
-        hit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(moveDelta.x, 0), Mathf.Abs(moveDelta.x * Time.deltaTime), LayerMask.GetMask("Actor", "Blocking"));
-
-        if (hit.collider == null)
-            transform.Translate(moveDelta.x * Time.deltaTime, 0, 0);
-
-
+        rb.gravityScale = gravOrig;
+        isDashing = false;
+        canDash = true;
 
 
     }

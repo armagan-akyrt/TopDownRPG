@@ -335,6 +335,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Menu_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 306
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd3078965c75c344da403e25f3f01254
+      internalID: -475298350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Menu_1
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 306
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97af98a5e2651434c8c1edbf76bb5c9f
+      internalID: -552501824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -382,6 +424,7 @@ TextureImporter:
       Atlas_2_109: 1864283672
       Atlas_2_167: 1061554143
       Atlas_2_128: 1682694471
+      Menu_0: -1760433233
       Atlas_2_99: 210881394
       Atlas_2_114: 927751840
       Atlas_2_199: 1251942469
@@ -417,9 +460,9 @@ TextureImporter:
       Atlas_2_246: -645621530
       Atlas_2_229: -2095967657
       player_0: 1038778878
+      Menu_1: -552501824
       Atlas_2_88: -953628366
       Atlas_2_213: 1427580165
-      Atlas_2_0: -1760433233
       Atlas_2_131: -152911420
       Atlas_2_201: -1599794417
       Atlas_2_154: 1581021358

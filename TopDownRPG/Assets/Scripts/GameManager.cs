@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private void Awake()
         {
+            DontDestroyOnLoad(gameObject);
             instance = this;
         }
 
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
     public bool TryWeaponUpgrade()
     {
         // is weapon max level?
-        if (weaponPrices.Count - 1 <= weapon.weaponLevel)
+        if (weaponPrices.Count <= weapon.weaponLevel)
         {
             return false;
         }
@@ -85,8 +86,7 @@ public class GameManager : MonoBehaviour
         // Set XP
         experience = int.Parse(data[2]);
         // Set weapon level
-        weapon.weaponLevel = int.Parse(data[3]);
-        weapon.setWeaponLevel(weapon.weaponLevel);
+        weapon.setWeaponLevel(int.Parse(data[3]));
 
         Debug.Log("LoadState");
     }

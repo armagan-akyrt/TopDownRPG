@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public List<int> xpTable;
 
     public Player player;
+    public Weapon weapon;
 
     public FloatingTextManager floatingTextManager;
 
@@ -26,6 +27,26 @@ public class GameManager : MonoBehaviour
     {
         floatingTextManager.Show(msg, fontSize, color, pos, motion, duration);
     }
+
+    // upgrade weapon
+    public bool TryWeaponUpgrade()
+    {
+        // is weapon max level?
+        if (weaponPrices.Count - 1 <= weapon.weaponLevel)
+        {
+            return false;
+        }
+
+        if (money >= weaponPrices[weapon.weaponLevel])
+        {
+            money -= weaponPrices[weapon.weaponLevel];
+            weapon.UpgradeWeapon();
+            return true;
+        }
+
+        return false;
+    }
+    
 
     /// <summary>
     /// INT preferredSkin
@@ -40,8 +61,8 @@ public class GameManager : MonoBehaviour
         s += "0" + '|';
         s += money.ToString() + '|';
         s += experience.ToString() + '|';
-        s += "0" + '|';
-
+        s += weapon.weaponLevel.ToString() + '|';
+        
 
         PlayerPrefs.SetString("SaveState", s);
 
@@ -58,12 +79,14 @@ public class GameManager : MonoBehaviour
 
         string[] data = PlayerPrefs.GetString("SaveState").Split('|');
 
-        // Set player skin
-        // Set player money
+        // TODO: Set player skin
+        // TODO: Set player money
         money = int.Parse(data[1]);
         // Set XP
         experience = int.Parse(data[2]);
         // Set weapon level
+        weapon.weaponLevel = int.Parse(data[3]);
+        weapon.setWeaponLevel(weapon.weaponLevel);
 
         Debug.Log("LoadState");
     }

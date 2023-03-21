@@ -31,6 +31,7 @@ public class Chest : Collectible
         if (!collected)
         {
             GameManager.instance.ShowText("Press E to open.", 25, Color.blue, transform.position, Vector3.up * 50, 2.5f);
+            GameManager.instance.money += 10;
             collected = true;
             GetComponent<SpriteRenderer>().sprite = emptyChest;
             Debug.LogWarning("COLLECTED");

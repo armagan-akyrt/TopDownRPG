@@ -5,8 +5,8 @@ using UnityEngine;
 public class Weapon : Collidable
 {
     // Damage struct
-    public float dmgVal = 1f;
-    public float pushForce = 2f;
+    public float baseDmg = 1f, dmgVal = 1f;
+    public float basePushForce = 2f, pushForce = 2f;
 
     // Weapon Upgrades
     public int weaponLevel = 0;
@@ -57,5 +57,25 @@ public class Weapon : Collidable
             coll.SendMessage("RecieveDamage", dmg);
             Debug.Log("Enemy hit");
         }
+    }
+
+    public void UpgradeWeapon()
+    {
+        weaponLevel++;
+        spriteRenderer.sprite = GameManager.instance.weaponSprites[weaponLevel];
+
+        // stat upgrades.
+        dmgVal = baseDmg + weaponLevel * .5f;
+        pushForce = basePushForce + weaponLevel * .1f;
+    }
+
+    public void setWeaponLevel(int level)
+    {
+        weaponLevel = level;
+        spriteRenderer.sprite = GameManager.instance.weaponSprites[weaponLevel];
+
+        // stat upgrades.
+        dmgVal = baseDmg + weaponLevel * .5f;
+        pushForce = basePushForce + weaponLevel * .1f;
     }
 }

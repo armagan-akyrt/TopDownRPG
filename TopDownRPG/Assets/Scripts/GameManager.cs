@@ -85,8 +85,7 @@ public class GameManager : MonoBehaviour
         // Set XP
         experience = int.Parse(data[2]);
         // Set weapon level
-        weapon.weaponLevel = int.Parse(data[3]);
-        weapon.setWeaponLevel(weapon.weaponLevel);
+        weapon.setWeaponLevel(int.Parse(data[3]));
 
         Debug.Log("LoadState");
     }

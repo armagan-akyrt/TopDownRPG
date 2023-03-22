@@ -17,6 +17,11 @@ public class Weapon : Collidable
     public float cooldown = .5f;
     private float lastSwing;
 
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     protected override void Start()
     {
         base.Start();

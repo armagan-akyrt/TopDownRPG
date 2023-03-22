@@ -67,15 +67,7 @@ public class CharMenu : MonoBehaviour
     {
         // weapon
         weaponSprite.sprite = GameManager.instance.weaponSprites[GameManager.instance.weapon.weaponLevel];
-        if (GameManager.instance.weapon.weaponLevel == GameManager.instance.weaponPrices.Count)
-        {
-            upCostText.text = "MAX";
-        }
-        else
-        {
-            upCostText.text = GameManager.instance.weaponPrices[GameManager.instance.weapon.weaponLevel].ToString();
-        }
-        
+        upCostText.text = "W.I.P.";
 
         // meta
         hpText.text = GameManager.instance.player.currentHealth.ToString();

@@ -19,10 +19,10 @@ public class CharMenu : MonoBehaviour
     {
         if (right)
         {
-            currentCharSelection--;
+            currentCharSelection++;
 
             // if end
-            if (currentCharSelection == GameManager.instance.playerSprites.Count - 1)
+            if (currentCharSelection == GameManager.instance.playerSprites.Count)
             {
                 currentCharSelection = 0;
 
@@ -33,7 +33,7 @@ public class CharMenu : MonoBehaviour
 
         else
         {
-            currentCharSelection++;
+            currentCharSelection--;
 
             // if end
             if (currentCharSelection < 0)
@@ -51,6 +51,7 @@ public class CharMenu : MonoBehaviour
     private void OnSelectionChange()
     {
         charSelectionSprite.sprite = GameManager.instance.playerSprites[currentCharSelection];
+        GameManager.instance.SwapCharacter(currentCharSelection);
     }
 
     // weapon upgrade

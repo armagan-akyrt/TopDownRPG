@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
         }
 
     public List<Sprite> playerSprites;
+    public List<RuntimeAnimatorController> animatorControllers;
     public List<Sprite> weaponSprites;
     public List<int> weaponPrices;
     public List<int> xpTable;
@@ -26,6 +27,14 @@ public class GameManager : MonoBehaviour
     public void ShowText(string msg, int fontSize, Color color, Vector3 pos, Vector3 motion, float duration)
     {
         floatingTextManager.Show(msg, fontSize, color, pos, motion, duration);
+    }
+
+    public void SwapCharacter(int charSprite)
+    {
+
+        player.changeCharacter(animatorControllers[charSprite], playerSprites[charSprite]);
+        
+
     }
 
     // upgrade weapon

@@ -1103,7 +1103,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 395788121}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 755368157}
+        m_TargetAssemblyTypeName: CharMenu, Assembly-CSharp
+        m_MethodName: OnArrowClick
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &395788121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13291,7 +13303,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1482117500}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 755368157}
+        m_TargetAssemblyTypeName: CharMenu, Assembly-CSharp
+        m_MethodName: OnArrowClick
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1482117500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13624,7 +13648,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b33fc0bbaf0507846b1502f05fe85909, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -36988,6 +37012,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3928048560451033626, guid: 701a3584a2bda494484df8cd42b78d6f, type: 3}
+      propertyPath: playerSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928048560451033626, guid: 701a3584a2bda494484df8cd42b78d6f, type: 3}
       propertyPath: weaponSprites.Array.size
       value: 7
       objectReference: {fileID: 0}
@@ -37020,6 +37048,14 @@ PrefabInstance:
       value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 3928048560451033626, guid: 701a3584a2bda494484df8cd42b78d6f, type: 3}
+      propertyPath: playerSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 1153088637, guid: 89ab11bbf3ef609458d8f11255f6a6cd, type: 3}
+    - target: {fileID: 3928048560451033626, guid: 701a3584a2bda494484df8cd42b78d6f, type: 3}
+      propertyPath: playerSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -188860838, guid: 3ff59c3165302f348b997b2a77ec38a4, type: 3}
+    - target: {fileID: 3928048560451033626, guid: 701a3584a2bda494484df8cd42b78d6f, type: 3}
       propertyPath: weaponSprites.Array.data[0]
       value: 
       objectReference: {fileID: 1062470131, guid: 6bfe527c94f090c4ab31bd1c1797d67a, type: 3}
@@ -37047,6 +37083,18 @@ PrefabInstance:
       propertyPath: weaponSprites.Array.data[6]
       value: 
       objectReference: {fileID: -770362084, guid: 6bfe527c94f090c4ab31bd1c1797d67a, type: 3}
+    - target: {fileID: 3928048560451033626, guid: 701a3584a2bda494484df8cd42b78d6f, type: 3}
+      propertyPath: animatorControllers.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928048560451033626, guid: 701a3584a2bda494484df8cd42b78d6f, type: 3}
+      propertyPath: animatorControllers.Array.data[0]
+      value: 
+      objectReference: {fileID: 9100000, guid: 23d6b28b9f32730429b631fa3539fd5b, type: 2}
+    - target: {fileID: 3928048560451033626, guid: 701a3584a2bda494484df8cd42b78d6f, type: 3}
+      propertyPath: animatorControllers.Array.data[1]
+      value: 
+      objectReference: {fileID: 9100000, guid: e59375b9702947c4098c05398a4f3e56, type: 2}
     - target: {fileID: 3928048560451033627, guid: 701a3584a2bda494484df8cd42b78d6f, type: 3}
       propertyPath: m_RootOrder
       value: 6

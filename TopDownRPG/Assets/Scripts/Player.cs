@@ -14,6 +14,14 @@ public class Player : Movement
         base.Start();
         anim = GetComponent<Animator>();
     }
+
+    public void changeCharacter(RuntimeAnimatorController animcontroller, Sprite playerSprite)
+    {
+        GetComponent<SpriteRenderer>().sprite = playerSprite;
+        anim.runtimeAnimatorController = animcontroller;
+        
+    }
+
     private void FixedUpdate()
     {
         x = Input.GetAxisRaw("Horizontal");

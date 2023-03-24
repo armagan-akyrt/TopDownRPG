@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     public int money;
     public int experience;
 
+    public int level;
+    
+
     public void ShowText(string msg, int fontSize, Color color, Vector3 pos, Vector3 motion, float duration)
     {
         floatingTextManager.Show(msg, fontSize, color, pos, motion, duration);
@@ -34,6 +37,64 @@ public class GameManager : MonoBehaviour
 
         player.changeCharacter(animatorControllers[charSprite], playerSprites[charSprite]);
         
+
+    }
+
+
+    // xp system
+    public int GetCurrentLevel()
+    {
+        int ret = 0, sum = 0;
+
+        while (experience >= sum)
+        {
+            sum += xpTable[ret];
+            ret++;
+
+            if (ret >= xpTable.Count)
+            {
+                return ret;
+            }
+        }
+
+        level = ret;
+        return ret;
+    }
+
+    public int Level2Xp(int level)
+    {
+        int temp = 0, xp = 0;
+
+        while (temp <= level)
+        {
+            xp += xpTable[temp];
+            temp++;
+        }
+
+        return xp;
+    }
+
+    public int CalculateNextLevelXp(int currentLevel)
+    {
+        int sum = 0;
+        for (int i = 0; i < currentLevel; i++)
+        {
+            sum += xpTable[i];
+        }
+
+        return sum;
+    }
+
+    public float CalculateRatio()
+    {
+        int xpSofar = 0;
+        for (int i = 0; i < level - 1; i++)
+        {
+            xpSofar += xpTable[i];
+        }
+        int diff = experience - xpSofar;
+
+        return (float)diff / (float)xpTable[level - 1];
 
     }
 
@@ -95,6 +156,8 @@ public class GameManager : MonoBehaviour
         experience = int.Parse(data[2]);
         // Set weapon level
         weapon.setWeaponLevel(int.Parse(data[3]));
+
+
 
         Debug.Log("LoadState");
     }

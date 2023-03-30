@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CharMenu : MonoBehaviour
 {
     // text fields
-    public Text LevelText, hpText, cashText, upCostText, xpText;
+    public Text LevelText, hpText, cashText, upCostText, xpText;   
 
     // logic 
     private int currentCharSelection = 0;

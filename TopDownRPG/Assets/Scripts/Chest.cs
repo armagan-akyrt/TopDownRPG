@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Chest : Collectible
-{   
+{
     private Sprite defaultChest;
     public Sprite hoveredChest;
     public Sprite emptyChest;
@@ -18,13 +18,13 @@ public class Chest : Collectible
     {
         if (!collected)
         {
-            
+
             GetComponent<SpriteRenderer>().sprite = hoveredChest;
             base.OnHover();
         }
 
-        
-        
+
+
     }
     protected override void OnCollect()
     {

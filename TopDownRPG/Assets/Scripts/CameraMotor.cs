@@ -30,4 +30,6 @@ public class CameraMotor : MonoBehaviour
 
         transform.position += new Vector3(deltaX, deltaY, 0);
     }
+
+    
 }

@@ -31,4 +31,5 @@ public class Collectible : Collidable
             OnCollect();
         }
     }
+
 }
